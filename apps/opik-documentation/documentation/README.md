@@ -1,100 +1,46 @@
 ---
-sidebar_position: 101
-sidebar_label: Changelog
+sidebar_position: 1
+slug: /
+sidebar_label: Home
 ---
 
-# Weekly Changelog
+# Opik by Comet
 
-## Week of 2024-11-04
+The Opik platform allows you log, view and evaluate your LLM traces during both development and production. Using the platform and our LLM as a Judge evaluators, you can identify and fix issues in your LLM application.
 
-**Opik Dashboard**:
+![LLM Evaluation Platform](/img/home/traces_page_with_sidebar.png)
 
-* Added a new `Prompt library` page to manage your prompts in the UI. ![prompt library](../../../img/changelog/2024-11-04/prompt\_library\_versions.png)
+:::tip
+Opik is Open Source! You can find the full source code on [GitHub](https://github.com/comet-ml/opik) and the complete self-hosting guide can be found [here](/self-host/local_deployment.md).
+:::
 
-**SDK**:
+## Overview
 
-* Introduced the `Prompt` object in the SDK to manage prompts stored in the library. See the [Prompt Management](../../../library/managing\_prompts\_in\_code.mdx) guide for more details.
-* Introduced a `Opik.search_spans` method to search for spans in a project. See the [Search spans](../../../tracing/export\_data.md#exporting-spans) guide for more details.
-* Released a new integration with [AWS Bedrock](../../../tracing/integrations/bedrock.md) for using Opik with Bedrock models.
+The Opik platform allows you to track, view and evaluate your LLM traces during both development and production.
 
-## Week of 2024-10-28
+### Development
 
-**Opik Dashboard**:
+During development, you can use the platform to log, view and debug your LLM traces:
 
-* Added a new `Feedback modal` in the UI so you can easily provide feedback on any parts of the platform.
+1. Log traces using:
 
-**SDK**:
+   a. One of our [integrations](/tracing/integrations/overview.md).
 
-* Released new evaluation metric: [GEval](../../../evaluation/metrics/g\_eval.md) - This LLM as a Judge metric is task agnostic and can be used to evaluate any LLM call based on your own custom evaluation criteria.
-* Allow users to specify the path to the Opik configuration file using the `OPIK_CONFIG_PATH` environment variable, read more about it in the [Python SDK Configuration guide](../../../tracing/sdk\_configuration.mdx#using-a-configuration-file).
-* You can now configure the `project_name` as part of the `evaluate` method so that traces are logged to a specific project instead of the default one.
-* Added a new `Opik.search_traces` method to search for traces, this includes support for a search string to return only specific traces.
-* Enforce structured outputs for LLM as a Judge metrics so that they are more reliable (they will no longer fail when decoding the LLM response).
+   b. The `@track` decorator for Python, learn more in the [Logging Traces](/tracing/log_traces.mdx) guide.
 
-## Week of 2024-10-21
+2. [Annotate and label traces](/tracing/annotate_traces) through the SDK or the UI.
 
-**Opik Dashboard**:
+### Evaluation and Testing
 
-* Added the option to download traces and LLM calls as CSV files from the UI: ![download traces](../../../img/changelog/2024-10-21/download\_traces.png)
-* Introduce a new quickstart guide to help you get started: ![quickstart guide](../../../img/changelog/2024-10-21/quickstart\_guide.png)
-* Updated datasets to support more flexible data schema, you can now insert items with any key value pairs and not just `input` and `expected_output`. See more in the SDK section below.
-* Multiple small UX improvements (more informative empty state for projects, updated icons, feedback tab in the experiment page, etc).
-* Fix issue with  characters breaking the YAML code block in the traces page.
+Evaluating the output of your LLM calls is critical to ensure that your application is working as expected and can be challenging. Using the Opik platformm, you can:
 
-**SDK**:
+1. Use one of our [LLM as a Judge evaluators](/evaluation/metrics/overview.md) or [Heuristic evaluators](/evaluation/metrics/heuristic_metrics.md) to score your traces and LLM calls
+2. [Store evaluation datasets](/evaluation/manage_datasets.md) in the platform and [run evaluations](/evaluation/evaluate_your_llm.md)
+3. Use our [pytest integration](/testing/pytest_integration.md) to track unit test results and compare results between runs
 
-*   Datasets now support more flexible data schema, we now support inserting items with any key value pairs:
 
-    ```python
-    import opik
+## Getting Started
 
-    client = opik.Opik()
-    dataset = client.get_or_create_dataset(name="Demo Dataset")
-    dataset.insert([
-        {"user_question": "Hello, what can you do ?", "expected_output": {"assistant_answer": "I am a chatbot assistant that can answer questions and help you with your queries!"}},
-        {"user_question": "What is the capital of France?", "expected_output": {"assistant_answer": "Paris"}},
-    ])
-    ```
-* Released WatsonX, Gemini and Groq integration based on the LiteLLM integration.
-* The `context` field is now optional in the [Hallucination](../../../tracing/integrations/overview.md) metric.
-* LLM as a Judge metrics now support customizing the LLM provider by specifying the `model` parameter. See more in the [Customizing LLM as a Judge metrics](../../../evaluation/metrics/overview.md#customizing-llm-as-a-judge-metrics) section.
-* Fixed an issue when updating feedback scores using the `update_current_span` and `update_current_trace` methods. See this Github issue for more details.
+[Comet](https://www.comet.com/site) provides a managed Cloud offering for Opik, simply [create an account](https://www.comet.com/signup?from=llm) to get started.
 
-## Week of 2024-10-14
-
-**Opik Dashboard**:
-
-* Fix handling of large experiment names in breadcrumbs and popups
-* Add filtering options for experiment items in the experiment page ![experiment item filters](../../../img/changelog/2024-10-14/experiment\_page\_filtering.png)
-
-**SDK:**
-
-* Allow users to configure the project name in the LangChain integration
-
-## Week of 2024-10-07
-
-**Opik Dashboard**:
-
-* Added `Updated At` column in the project page
-* Added support for filtering by token usage in the trace page
-
-**SDK:**
-
-* Added link to the trace project when traces are logged for the first time in a session
-* Added link to the experiment page when calling the `evaluate` method
-* Added `project_name` parameter in the `opik.Opik` client and `opik.track` decorator
-* Added a new `nb_samples` parameter in the `evaluate` method to specify the number of samples to use for the evaluation
-* Released the LiteLLM integration
-
-## Week of 2024-09-30
-
-**Opik Dashboard**:
-
-* Added option to delete experiments from the UI
-* Updated empty state for projects with no traces
-* Removed tooltip delay for the reason icon in the feedback score components
-
-**SDK:**
-
-* Introduced new `get_or_create_dataset` method to the `opik.Opik` client. This method will create a new dataset if it does not exist.
-* When inserting items into a dataset, duplicate items are now silently ignored instead of being ingested.
+You can also run Opik locally using our [local installer](/self-host/local_deployment.md). If you are looking for a more production ready deployment, you can also use our [Kubernetes deployment option](/self-host/kubernetes.md).
