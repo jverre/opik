@@ -3,9 +3,6 @@ sidebar_label: LLM Gateway
 description: Describes how to use the Opik LLM gateway and how to integrate with the Kong AI Gateway
 ---
 
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
-
 # LLM Gateway
 
 An LLM gateway is a proxy server that forwards requests to an LLM API and returns the response. This is useful for when you want to centralize the access to LLM providers or when you want to be able to query multiple LLM providers from a single endpoint using a consistent request and response format.
@@ -19,7 +16,7 @@ The Opik LLM gateway is a light-weight proxy server that can be used to query di
 In order to use the Opik LLM gateway, you will first need to configure your LLM provider credentials in the Opik UI. Once this is done, you can use the Opik gateway to query your LLM provider:
 
 <Tabs>
-    <TabItem value="Opik Cloud" title="Opik Cloud">
+    <Tab title="Opik Cloud">
     ```bash
     curl -L 'https://www.comet.com/opik/api/v1/private/chat/completions' \
     -H 'Content-Type: application/json' \
@@ -39,8 +36,8 @@ In order to use the Opik LLM gateway, you will first need to configure your LLM 
         "max_tokens": 10000
     }'
     ```
-    </TabItem>
-        <TabItem value="Opik self-hosted" title="Opik self-hosted">
+    </Tab>
+        <Tab title="Opik self-hosted">
     ```bash
     curl -L 'http://localhost:5173/api/v1/private/chat/completions' \
     -H 'Content-Type: application/json' \
@@ -58,7 +55,7 @@ In order to use the Opik LLM gateway, you will first need to configure your LLM 
         "max_tokens": 10000
     }'
     ```
-    </TabItem>
+    </Tab>
 </Tabs>
 
 :::warning

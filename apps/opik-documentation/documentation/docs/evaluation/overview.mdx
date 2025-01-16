@@ -3,9 +3,6 @@ sidebar_label: Overview
 description: A high-level overview on how to use Opik's evaluation features including some code snippets
 ---
 
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
-
 # Overview
 
 Evaluation in Opik helps you assess and measure the quality of your LLM outputs across different dimensions.
@@ -38,7 +35,7 @@ To simplify the evaluation process, Opik provides two main evaluation methods: `
 templates and a more general `evaluate` method for more complex evaluation scenarios.
 
 <Tabs>
-    <TabItem value="Evaluating Prompts" title="Evaluating Prompts">
+    <Tab title="Evaluating Prompts">
 
 To evaluate a specific prompt against a dataset:
 
@@ -64,8 +61,8 @@ result = evaluate_prompt(
 )
 ```
 
-</TabItem>
-<TabItem value="Evaluating RAG applications and Agents" title="Evaluating RAG applications and Agents">
+</Tab>
+<Tab title="Evaluating RAG applications and Agents">
 
 For more complex evaluation scenarios where you need custom processing:
 
@@ -110,8 +107,8 @@ result = evaluate(
 )
 ```
 
-</TabItem>
-<TabItem value="Using the Playground" title="Using the Playground">
+</Tab>
+<Tab title="Using the Playground">
     You can also use the Opik Playground to quickly evaluate different prompts and LLM models.
 
     To use the Playground, you will need to navigate to the [Playground](/prompt_engineering/playground.md) page and:
@@ -125,7 +122,7 @@ result = evaluate(
 
     ![Playground](/img/evaluation/playground_evaluation.gif)
 
-</TabItem>
+</Tab>
 </Tabs>
 
 ## Analyzing Evaluation Results

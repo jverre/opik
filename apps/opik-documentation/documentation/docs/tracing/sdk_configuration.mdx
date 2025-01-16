@@ -3,15 +3,12 @@ sidebar_label: Python SDK Configuration
 description: Describes how to configure the Python SDK
 ---
 
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
-
 # Python SDK Configuration
 
 The recommended approach to configuring the Python SDK is to use the `opik configure` command. This will prompt you for the necessary information and save it to a configuration file.
 
 <Tabs>
-    <TabItem value="Opik Cloud" title="Opik Cloud">
+    <Tab title="Opik Cloud">
 
 If you are using the Cloud version of the platform, you can configure the SDK by running:
 
@@ -27,8 +24,8 @@ You can also configure the SDK by calling [`configure`](https://www.comet.com/do
 opik configure
 ```
 
-    </TabItem>
-    <TabItem value="Self-hosting" title="Self-hosting">
+    </Tab>
+    <Tab title="Self-hosting">
 
 If you are self-hosting the platform, you can configure the SDK by running:
 
@@ -44,7 +41,7 @@ or from the Command line:
 opik configure --use_local
 ```
 
-    </TabItem>
+    </Tab>
 
 </Tabs>
 
@@ -64,7 +61,7 @@ The `configure` method is a helper method to help you create the Opik SDK config
 The Opik configuration file follows the [TOML](https://github.com/toml-lang/toml) format, here is an example configuration file:
 
 <Tabs>
-    <TabItem value="Opik Cloud" title="Opik Cloud">
+    <Tab title="Opik Cloud">
 
 ```toml
 [opik]
@@ -73,8 +70,8 @@ workspace = <Workspace name>
 api_key = <API Key>
 ```
 
-    </TabItem>
-    <TabItem value="Self-hosting" title="Self-hosting">
+    </Tab>
+    <Tab title="Self-hosting">
 
 ```toml
 [opik]
@@ -82,7 +79,7 @@ url_override = http://localhost:5173/api
 workspace = default
 ```
 
-    </TabItem>
+    </Tab>
 
 </Tabs>
 

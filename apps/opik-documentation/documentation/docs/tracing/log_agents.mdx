@@ -6,9 +6,6 @@ toc_max_heading_level: 4
 pytest_codeblocks_skip: true
 ---
 
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
-
 # Track Agents
 
 When working with agents, it can become challenging to track the flow of the agent and its interactions with the environment.
@@ -27,7 +24,7 @@ in the Opik Github repo or book a call with the Opik team: [Talk to the Opik tea
 You can track the agent execution by using either one of [Opik's integrations](/tracing/integrations/overview.md) or the `@track` decorator:
 
 <Tabs>
-    <TabItem value="LangGraph" title="LangGraph">
+    <Tab title="LangGraph">
     You can log the agent execution by using the [OpikTracer](/tracing/integrations/langgraph.md) callback:
 
     ```python
@@ -50,8 +47,8 @@ You can track the agent execution by using either one of [Opik's integrations](/
     ```
 
     The `OpikTracer` can be added
-    </TabItem>
-    <TabItem value="Haystack" title="Haystack">
+    </Tab>
+    <Tab title="Haystack">
     To log a Haystack pipeline run, you can use the [`OpikConnector`](/tracing/integrations/haystack.md). This connector will log the pipeline run to the Opik platform and add a `tracer` key to the pipeline run response with the trace ID:
 
     ```python
@@ -82,8 +79,8 @@ You can track the agent execution by using either one of [Opik's integrations](/
     print(response)
     ```
 
-    </TabItem>
-    <TabItem value="LLamaIndex" title="LLamaIndex">
+    </Tab>
+    <Tab title="LLamaIndex">
     Opik has a built-in integration with [LLamaIndex](/tracing/integrations/llama_index.md) that makes it easy to track the agent execution:
 
     ```python
@@ -94,8 +91,8 @@ You can track the agent execution by using either one of [Opik's integrations](/
     opik_callback_handler = global_handler
     ```
 
-    </TabItem>
-    <TabItem value="Manual Tracking" title="Manual Tracking">
+    </Tab>
+    <Tab title="Manual Tracking">
     If you are not using any of the above integrations, you can track the agent execution manually using the `@track` decorator:
 
     ```python
@@ -116,7 +113,7 @@ You can track the agent execution by using either one of [Opik's integrations](/
 
     agent_graph("What is Opik ?")
     ```
-    </TabItem>
+    </Tab>
 
 </Tabs>
 

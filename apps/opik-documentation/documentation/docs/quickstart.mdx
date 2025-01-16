@@ -3,9 +3,6 @@ sidebar_label: Quickstart
 description: This guide helps you integrate the Opik platform with your existing LLM application
 ---
 
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
-
 # Quickstart
 
 This guide helps you integrate the Opik platform with your existing LLM application. The goal of this guide is to help you log your first LLM calls and chains to the Opik platform.
@@ -25,7 +22,7 @@ pip install opik
 and configuring the SDK with:
 
 <Tabs>
-    <TabItem value="Python" title="Python">
+    <Tab title="Python">
 
 ```python
 import opik
@@ -37,8 +34,8 @@ opik.configure(use_local=False)
 If you are self-hosting the platform, simply set the `use_local` flag to True in the `opik.configure` method.
 :::
 
-</TabItem>
-<TabItem value="Command Line" title="cli">
+</Tab>
+<Tab title="cli">
 
 ```bash
 opik configure
@@ -48,7 +45,7 @@ opik configure
 If you are self-hosting the platform, simply use the `opik configure --use_local` command.
 :::
 
-</TabItem>
+</Tab>
 
 </Tabs>
 
@@ -60,7 +57,7 @@ The first step in integrating Opik with your codebase is to track your LLM calls
 can use one of our [integrations](/tracing/integrations/overview.md):
 
 <Tabs>
-    <TabItem value="OpenAI" title="OpenAI">
+    <Tab title="OpenAI">
 
 ```python
 from opik.integrations.openai import track_openai
@@ -73,8 +70,8 @@ openai_client = track_openai(openai_client)
 
 All OpenAI calls made using the `openai_client` will now be logged to Opik.
 
-</TabItem>
-<TabItem value="LiteLLM" title="LiteLLM">
+</Tab>
+<Tab title="LiteLLM">
 
 ```python pytest_codeblocks_skip=true
 from litellm.integrations.opik.opik import OpikLogger
@@ -87,9 +84,9 @@ litellm.callbacks = [opik_logger]
 
 All LiteLLM calls made using the `litellm` client will now be logged to Opik.
 
-</TabItem>
+</Tab>
 
-<TabItem value="Any other provider" title="Any other provider">
+<Tab title="Any other provider">
 
 If you are using an LLM provider that Opik does not have an integration for, you can still log the LLM calls by using the `@track` decorator:
 
@@ -110,7 +107,7 @@ The `@track` decorator will automatically log the input and output of the decora
 messages and the LLM responses in Opik. If you want to log more than just the input and output, you can use the `update_current_span` function
 as described in the [Traces / Logging Additional Data section](/tracing/log_traces.mdx#logging-additional-data).
 
-</TabItem>
+</Tab>
 
 </Tabs>
 
@@ -123,7 +120,7 @@ or by writing custom python code.
 Opik makes it easy for your to log your chains no matter how you implement them:
 
 <Tabs>
-    <TabItem value="Custom Python Code" title="Custom Python Code">
+    <Tab title="Custom Python Code">
 
 If you are not using any frameworks to build your chains, you can use the `@track` decorator to log your chains. When a
 function is decorated with `@track`, the input and output of the function will be logged to Opik. This works well even for very
@@ -176,8 +173,8 @@ llm_chain("Hello, how are you?")
 
 While this code sample assumes that you are using OpenAI, the same principle applies if you are using any other LLM provider.
 
-</TabItem>
-<TabItem value="LangChain" title="LangChain">
+</Tab>
+<Tab title="LangChain">
 
 If you are using LangChain to build your chains, you can use the `OpikTracer` to log your chains. The `OpikTracer` is a LangChain callback that will
 log every step of the chain to Opik:
@@ -205,9 +202,9 @@ llm_chain = prompt_template | llm
 llm_chain.invoke({"input": "Hello, how are you?"}, callbacks=[opik_tracer])
 ```
 
-</TabItem>
+</Tab>
 
-<TabItem value="LLamaIndex" title="LLamaIndex">
+<Tab title="LLamaIndex">
 
 If you are using LLamaIndex you can set `opik` as a global callback to log all LLM calls:
 
@@ -220,7 +217,7 @@ opik_callback_handler = global_handler
 
 You LlamaIndex calls from that point forward will be logged to Opik. You can learn more about the LlamaIndex integration in the [LLamaIndex integration docs](/tracing/integrations/llama_index.md).
 
-</TabItem>
+</Tab>
 
 </Tabs>
 
