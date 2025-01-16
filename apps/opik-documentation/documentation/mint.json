@@ -1,5 +1,5 @@
 {
-    "name": "Mintlify",
+    "name": "Opik",
     "logo": {
       "light": "/logo/light.svg",
       "dark": "/logo/dark.svg"
@@ -37,28 +37,12 @@
     "navigation": [
       {
         "group": "Getting Started",
-        "pages": ["introduction", "quickstart"]
-      },
-      {
-        "group": "API Components",
-        "pages": ["api-playground/overview", "api-playground/configuration"]
-      },
-      {
-        "group": "Settings",
-        "pages": ["settings/global", "settings/page"]
-      },
-      {
-        "group": "Analytics",
-        "pages": ["analytics/posthog"]
+        "pages": ["home", "quickstart"]
       }
     ],
     "footerSocials": {
-      "github": "https://github.com/mintlify",
-      "slack": "https://mintlify.com/community",
-      "x": "https://x.com/mintlify"
-    },
-    "integrations": {
-      "intercom": "APP_ID",
-      "frontchat": "CHAT_ID"
+      "github": "https://github.com/comet-ml/opik",
+      "slack": "https://chat.comet.com",
+      "x": "https://x.com/cometml"
     }
   }
