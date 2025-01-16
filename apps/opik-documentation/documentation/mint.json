@@ -35,10 +35,109 @@
       }
     ],
     "navigation": [
-      {
-        "group": "Guides",
-        "pages": ["docs/home", "docs/quickstart"]
-      }
+        
+        {
+            "group": "Guides",
+            "pages": [
+                "docs/home",
+                "docs/quickstart",
+                {
+                    "group": "Self-host",
+                    "pages": [
+                        "docs/self-host/overview",
+                        "docs/self-host/local_deployment",
+                        "docs/self-host/kubernetes",
+                        {
+                            "group": "Configuration",
+                            "pages": ["docs/self-host/configure/anonymous_usage_statistics"]
+                        }
+                    ]
+                },
+                {
+                    "group": "Observability",
+                    "pages": [
+                        "docs/tracing/log_traces",
+                        "docs/tracing/log_agents",
+                        "docs/tracing/log_multimodal_traces",
+                        "docs/tracing/log_distributed_traces",
+                        "docs/tracing/annotate_traces",
+                        "docs/tracing/cost_tracking",
+                        "docs/tracing/sdk_configuration",
+                        "docs/tracing/export_data",
+                        {
+                            "group": "Integrations",
+                            "pages": [
+                                "docs/tracing/integrations/overview",
+                                "docs/tracing/integrations/openai",
+                                "docs/tracing/integrations/litellm",
+                                "docs/tracing/integrations/langchain",
+                                "docs/tracing/integrations/aisuite",
+                                "docs/tracing/integrations/anthropic",
+                                "docs/tracing/integrations/bedrock",
+                                "docs/tracing/integrations/crewai",
+                                "docs/tracing/integrations/dify",
+                                "docs/tracing/integrations/dspy",
+                                "docs/tracing/integrations/gemini",
+                                "docs/tracing/integrations/groq",
+                                "docs/tracing/integrations/haystack",
+                                "docs/tracing/integrations/langgraph",
+                                "docs/tracing/integrations/llama_index",
+                                "docs/tracing/integrations/ollama",
+                                "docs/tracing/integrations/predibase",
+                                "docs/tracing/integrations/ragas",
+                                "docs/tracing/integrations/watsonx"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "group": "Evaluation",
+                    "pages": [
+                        "docs/evaluation/overview",
+                        "docs/evaluation/concepts",
+                        "docs/evaluation/evaluate_prompt",
+                        "docs/evaluation/evaluate_your_llm",
+                        "docs/evaluation/update_existing_experiment",
+                        "docs/evaluation/manage_datasets",
+                        {
+                            "group": "Metrics",
+                            "pages": [
+                                "docs/evaluation/metrics/overview",
+                                "docs/evaluation/metrics/heuristic_metrics",
+                                "docs/evaluation/metrics/hallucination",
+                                "docs/evaluation/metrics/g_eval",
+                                "docs/evaluation/metrics/moderation",
+                                "docs/evaluation/metrics/answer_relevance",
+                                "docs/evaluation/metrics/context_precision",
+                                "docs/evaluation/metrics/context_recall",
+                                "docs/evaluation/metrics/custom_model",
+                                "docs/evaluation/metrics/custom_metric"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "group": "Prompt engineering",
+                    "pages": [
+                        "docs/prompt_engineering/prompt_management",
+                        "docs/prompt_engineering/managing_prompts_in_code",
+                        "docs/prompt_engineering/playground"
+                    ]
+                },
+                {
+                    "group": "Testing",
+                    "pages": ["docs/testing/pytest_integration"]
+                },
+                {
+                    "group": "Production",
+                    "pages": [
+                        "docs/production/production_monitoring",
+                        "docs/production/rules",
+                        "docs/production/gateway"
+                    ]
+                }
+            ]
+          }
     ],
     "footerSocials": {
       "github": "https://github.com/mintlify",
